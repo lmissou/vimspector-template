@@ -1,0 +1,67 @@
+# vimspector config file snippets
+
+snippet chromeadebug "Chrome Attach(Debug)"
+"${1:attach}": {
+	"adapter": "chrome",
+	"configuration": {
+		"request": "attach",
+		"url": "${2:http://localhost:1234/}",
+		"port": 9222,
+		"webRoot": "${workspaceRoot}/www"
+	}
+}
+endsnippet
+
+snippet chromeldebug "Chrome Launch(Debug)"
+"${1:launch}": {
+	"adapter": "chrome",
+	"configuration": {
+		"request": "launch",
+		"url": "${2:http://localhost:1234/}",
+		"runtimeExecutable": "${3:/bin/chromium}",
+		"webRoot": "${workspaceRoot}/www"
+	}
+}
+endsnippet
+
+snippet chromefdebug "Chrome File(Debug)"
+"${1:index.html}": {
+	"adapter": "chrome",
+	"configuration": {
+		"request": "launch",
+		"runtimeExecutable": "${3:/bin/chromium}",
+		"url": "${2:http://localhost:1234/}",
+		"file": "${workspaceFolder}/${3:index.html}"
+	}
+}
+endsnippet
+
+snippet pyldebug "Python Launch(Debug)"
+"${1:<name>}: Launch": {
+	"adapter": "debugpy",
+	"configuration": {
+		"name": "<name>: Launch",
+		"type": "python",
+		"request": "launch",
+		"cwd": "<working directory>",
+		"python": "${2:/bin/python}",
+		"stopOnEntry": true,
+		"console": "externalTerminal",
+		"debugOptions": [],
+		"program": "${3:<path to main python file>}"
+	}
+}
+endsnippet
+
+snippet goldebug "Golang Launch(Debug)"
+"${1:run}": {
+	"adapter": "vscode-go",
+	"configuration": {
+		"request": "launch",
+		"program": "${2:${fileDirname}}",
+		"mode": "debug",
+		"dlvToolPath": "$HOME/go/bin/dlv"
+	}
+}
+endsnippet
+
