@@ -53,6 +53,23 @@ snippet pyldebug "Python Launch(Debug)"
 }
 endsnippet
 
+snippet pylvsdebug "Python Launch(Debug)"
+"${1:<name>}: Launch": {
+	"adapter": "vscode-python",
+	"configuration": {
+		"name": "<name>: Launch",
+		"type": "python",
+		"request": "launch",
+		"cwd": "<working directory>",
+		"python": "${2:/bin/python}",
+		"stopOnEntry": true,
+		"console": "externalTerminal",
+		"debugOptions": [],
+		"program": "${3:<path to main python file>}"
+	}
+}
+endsnippet
+
 snippet goldebug "Golang Launch(Debug)"
 "${1:run}": {
 	"adapter": "vscode-go",
